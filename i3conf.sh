@@ -15,6 +15,7 @@ sudo dnf install -y \
 
 # Crear carpetas si no existen
 mkdir -p ~/.config/i3
+cp i3status.conf ~/.config/i3/
 
 echo "📝 Copiando configuración de i3..."
 cat > ~/.config/i3/config <<'EOF'
