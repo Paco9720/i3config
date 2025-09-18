@@ -5,13 +5,14 @@
 set -e
 
 echo "🔧 Instalando dependencias..."
-sudo dnf install -y \
+sudo apt update
+sudo apt install -y \
   i3 i3status py3status rofi picom nitrogen \
   lxpolkit xss-lock i3lock \
-  NetworkManager-gnome \
-  dejavu-sans-mono-fonts \
+  fonts-dejavu \
   pulseaudio-utils \
   alsa-utils
+
 
 # Crear carpetas si no existen
 mkdir -p ~/.config/i3
@@ -25,7 +26,6 @@ font pango:monospace 8
 
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-exec --no-startup-id nm-applet
 exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id lxpolkit
